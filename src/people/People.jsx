@@ -8,14 +8,15 @@ class People extends Component {
     people: PropTypes.array.isRequired,
   };
 
-  listOfPeople = this.props.people.map(person => (
-    <div className="App-box" key={person.id}>
-      {person.name}
-    </div>
-  ));
+  listOfPeople = () =>
+    this.props.people.map(person => (
+      <div className="App-box" key={person.id}>
+        {person.name}
+      </div>
+    ));
 
   render() {
-    return <div>{this.listOfPeople}</div>;
+    return <div>{this.listOfPeople()}</div>;
   }
 }
 
