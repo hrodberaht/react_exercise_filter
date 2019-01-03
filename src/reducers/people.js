@@ -17,22 +17,18 @@ const people = [
   { id: 14, name: 'Lorretta Lyon' },
   { id: 15, name: 'Tanisha Norman' },
   { id: 16, name: 'Cynthia Sapp' },
-  { id: 17, name: 'Penny Laurent' }
-]
+  { id: 17, name: 'Penny Laurent' },
+];
 
 const initialState = {
   people: people,
-  filterQuery: ''
+  filterQuery: '',
 };
 
 export default function browse(state = initialState, action) {
   switch (action.type) {
-
-    // this is an example
-    case types.DO_NOTHING:
-      return state;
-
-    // ...
+    case types.APPLY_FILTER:
+      return { ...state, filterQuery: action.payload };
 
     default:
       return state;

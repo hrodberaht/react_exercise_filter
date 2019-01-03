@@ -1,4 +1,1 @@
-// this is an example type
-export const DO_NOTHING = 'DO_NOTHING';
-
-// ...
+export const APPLY_FILTER = 'APPLY_FILTER';

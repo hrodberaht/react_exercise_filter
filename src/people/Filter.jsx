@@ -2,31 +2,35 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
-// ...
+import { applyFilter } from '../actions/people';
 
 class Filter extends Component {
   static propTypes = {
-    // ...
+    apply: PropTypes.func.isRequired,
   };
 
-  // ...
+  handleChange = e => {
+    this.props.apply(e.target.value);
+  };
 
   render() {
     return (
-      <div className='App-box'>
-        {/* ... */}
+      <div className="App-box">
+        <input type="text" onChange={this.handleChange} />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  // ...
-});
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      apply: applyFilter,
+    },
+    dispatch,
+  );
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  // ...
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Filter);
